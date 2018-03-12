@@ -11,8 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.MediaController;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.VideoView;
 
@@ -22,9 +25,14 @@ import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.StaticPagerAdapter;
 import com.orhanobut.logger.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.example.administrator.infocomm.R.id.spiner;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -60,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.autorollview)
     RollPagerView mRollPagerView;
 
+    @BindView(spiner)
+    Spinner spinner;
+
+    private List<String> location;
+    private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +95,35 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(int position) {
                 Toast.makeText(MainActivity.this,""+position,Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //摆放位置选择
+        initSpinner();
+
+    }
+
+    private void initSpinner() {
+        location= new ArrayList<>();
+        location.add("A");
+        location.add("B");
+        location.add("C");
+        location.add("D");
+        location.add("E");
+        location.add("F");
+
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, location);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Logger.d("sipnner", i + "/" + l);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
 

@@ -45,6 +45,12 @@
 
     </RelativeLayout>
 
+    <Spinner
+        android:id="@+id/spiner"
+        android:layout_below="@id/topvideo"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"></Spinner>
+
     <com.jude.rollviewpager.RollPagerView
         android:id="@+id/autorollview"
         android:layout_alignParentBottom="true"
