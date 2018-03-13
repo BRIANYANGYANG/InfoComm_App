@@ -3,9 +3,8 @@ package com.example.administrator.infocomm;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +13,8 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.MediaController;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
@@ -33,6 +32,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.example.administrator.infocomm.R.id.spiner;
+import static com.example.administrator.infocomm.data.CompanyDataManager.getinstance;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -71,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
     @BindView(spiner)
     Spinner spinner;
 
+    @BindView(R.id.location_tv)
+    TextView textView;
+
     private List<String> location;
     private ArrayAdapter<String> adapter;
 
@@ -94,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         mRollPagerView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Toast.makeText(MainActivity.this,""+position,Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -104,7 +107,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initSpinner() {
-        location= new ArrayList<>();
+
+        String l = getinstance().getLocationSP(getApplicationContext());
+        int pos = getinstance().getSpinnerPosSP(getApplicationContext());
+
+
+        location = new ArrayList<>();
         location.add("A");
         location.add("B");
         location.add("C");
@@ -115,22 +123,35 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, location);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        if (pos != -1) {
+            Logger.d("set pos and value", pos);
+            spinner.setSelection(pos, true);
+            textView.setText(spinner.getItemAtPosition(pos).toString());
+        }
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Logger.d("sipnner", i + "/" + l);
+                Log.d("sipnner", i + "/" + l);
+
+
+                String location = spinner.getSelectedItem().toString();
+                textView.setText(location);
+                Logger.i(location);
+
+                getinstance().saveSP(location, i, adapterView.getContext());
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                textView.setText("请选择");
             }
         });
 
     }
 
     class MyPagerAdapter extends StaticPagerAdapter {
-        private  int[] image = {
+        private int[] image = {
                 R.drawable.one,
                 R.drawable.two,
                 R.drawable.three,

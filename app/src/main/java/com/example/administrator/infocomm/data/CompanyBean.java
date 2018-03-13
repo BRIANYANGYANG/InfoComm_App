@@ -1,7 +1,5 @@
 package com.example.administrator.infocomm.data;
 
-import com.orhanobut.logger.Logger;
-
 /**
  * Created by Administrator on 2018/3/11 0011.
  */
@@ -13,14 +11,11 @@ public class CompanyBean {
     private int x;
     private int y;
 
-   public CompanyBean(String name, String boothPart, String boothNo, int x, int y) {
-       this.name = name;
-       this.boothNo = boothNo;
-       this.boothPart = boothPart;
+   public CompanyBean(String name, String boothNo, int x, int y) {
+       this.name = name.trim();
+       this.boothNo = boothNo.trim();
        this.x = x;
        this.y = y;
-
-       Logger.i(toString());
     }
 
     public String getName() {
@@ -66,7 +61,6 @@ public class CompanyBean {
     @Override
     public String toString() {
         String a = name + "/"
-                +boothPart + "/"
                 +boothNo + "/"
                 +x + "/"
                 +y + "/";
