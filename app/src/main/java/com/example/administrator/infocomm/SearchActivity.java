@@ -7,12 +7,12 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.example.administrator.infocomm.data.CompanyBean;
 import com.example.administrator.infocomm.data.CompanyDataManager;
+import com.socks.library.KLog;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -100,18 +100,19 @@ public class SearchActivity extends AppCompatActivity {
         mClearEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int i, int i1, int i2) {
+                KLog.i("beforeTextChanged = " + s.toString());
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int i, int i1, int i2) {
+                KLog.i("onTextChanged");
                 //当输入框里面的值为空，更新为原来的列表，否则为过滤数据列表
                 filterData(s.toString());
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
             public void afterTextChanged(Editable editable) {
-
+                KLog.i("afterTextChanged");
             }
         });
     }
@@ -153,8 +154,8 @@ public class SearchActivity extends AppCompatActivity {
             String key = (String) entry.getKey();
             CompanyBean val = (CompanyBean) entry.getValue();
 
-            Log.i("CompanyBean", "key=" + key);
-            Log.i("CompanyBean", "val=" + val.toString());
+//            Log.i("CompanyBean", "key=" + key);
+//            Log.i("CompanyBean", "val=" + val.toString());
 
             SortModel sortModel = new SortModel();
             sortModel.setName(val.getName());

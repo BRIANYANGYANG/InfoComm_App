@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.orhanobut.logger.Logger;
+import com.socks.library.KLog;
 
 import java.util.HashMap;
 
@@ -15,7 +16,7 @@ public class CompanyDataManager {
     private static  String TAG = "CompanyDataManager";
     private static CompanyDataManager instance = null;
 
-    private HashMap<String, CompanyBean> map;
+    private static HashMap<String, CompanyBean> map = null;
 
     public CompanyDataManager() {
 
@@ -49,7 +50,7 @@ public class CompanyDataManager {
         String location = sp.getString("location","");
         int pos = sp.getInt("pos", 0);
 
-        Logger.i("get location from SP" +
+        KLog.i("get location from SP" +
                 "location=" + location);
 
         return  location;
@@ -61,7 +62,7 @@ public class CompanyDataManager {
         String location = sp.getString("location","");
         int pos = sp.getInt("pos", -1);
 
-        Logger.i("get pos from SP" +
+        KLog.i("get pos from SP" +
                 "pos=" + location);
 
         return  pos;
@@ -69,6 +70,7 @@ public class CompanyDataManager {
     }
 
     public HashMap<String, CompanyBean> getCompDataHashMap() {
+
         map = new HashMap<>();
         map.put(MapUtils.trim("testname    .-.   "), new CompanyBean("testname01", "ED9-21", 350, 550));
 
@@ -132,10 +134,7 @@ public class CompanyDataManager {
         map.put(MapUtils.trim("    北京飞马拓新电子设备有限公司                                                       "), new CompanyBean("    北京飞马拓新电子设备有限公司                                                    ", "       EK2-01     ",    28  ,   73   ));
 
 
-
-
-
-
+        KLog.d(TAG, map.hashCode());
 
 
 

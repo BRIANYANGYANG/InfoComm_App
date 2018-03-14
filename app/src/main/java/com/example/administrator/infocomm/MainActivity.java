@@ -23,6 +23,7 @@ import com.jude.rollviewpager.OnItemClickListener;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.StaticPagerAdapter;
 import com.orhanobut.logger.Logger;
+import com.socks.library.KLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -124,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         if (pos != -1) {
-            Logger.d("set pos and value", pos);
+            KLog.d("set pos and value", pos);
             spinner.setSelection(pos, true);
             textView.setText(spinner.getItemAtPosition(pos).toString());
         }
@@ -233,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         stopPlaybackVideo();
+        android.os.Process.killProcess(android.os.Process.myPid());
     }
 
     private void stopPlaybackVideo() {

@@ -6,13 +6,12 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.orhanobut.logger.Logger;
+import com.socks.library.KLog;
 
 /**
  * Created by yangpengfei10 on 2018/3/13.
@@ -39,31 +38,32 @@ public class SideBar extends View {
     }
 
 
-    public SideBar(Context context) {
-        super(context);
-    }
+	public SideBar(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+	}
 
-    public SideBar(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-    }
+	public SideBar(Context context, AttributeSet attrs) {
+		super(context, attrs);
+	}
 
-    public SideBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
+	public SideBar(Context context) {
+		super(context);
+	}
 
-    @Override
-    public void draw(Canvas canvas) {
-        super.draw(canvas);
-        int height = getHeight();
-        int width = getWidth();
-        int singleHeight = height / b.length;// 获取每一个字母的高度
+	protected void onDraw(Canvas canvas) {
+		super.onDraw(canvas);
+		int height = getHeight();
+		int width = getWidth();
+		int singleHeight = height / b.length;// 获取每一个字母的高度
 
-        Logger.i(TAG, "width=" + width);
-        Logger.i(TAG, "height=" + height);
+        KLog.i(TAG, "width=" + width);
+        KLog.i(TAG, "height=" + height);
 
         for (int i = 0; i < b.length; i ++) {
             paint.setColor(Color.rgb(33, 65, 98));
+            // paint.setColor(Color.WHITE);
             paint.setTypeface(Typeface.DEFAULT_BOLD);
+            paint.setAntiAlias(true);
             paint.setTextSize(30);
             if (i == choose) {// 选中的状态
                 paint.setColor(Color.parseColor("#3399ff"));
@@ -85,7 +85,7 @@ public class SideBar extends View {
         final int oldChoose = choose;
         final OnTouchingLetterChangedListener listener = onTouchingLetterChangedListener;
         final int c = (int) (y / getHeight() * b.length); // 点击y坐标所占总高度的比例*b数组的长度就等于点击b中的个数
-        Logger.i(TAG, "c=" + c);
+        KLog.i(TAG, "c=" + c);
         switch (action) {
             case MotionEvent.ACTION_UP:
                 setBackground(new ColorDrawable(0x00000000));
@@ -119,15 +119,14 @@ public class SideBar extends View {
 
     }
 
-    /**
-     * 触摸事件
-     *
-     * @param onTouchingLetterChangedListener
-     */
-    public void setOnTouchingLetterChangedListener(OnTouchingLetterChangedListener
-                                                           onTouchingLetterChangedListener) {
-        this.onTouchingLetterChangedListener = onTouchingLetterChangedListener;
-    }
+	/**
+	 * 触摸事件
+	 * @param onTouchingLetterChangedListener
+	 */
+	public void setOnTouchingLetterChangedListener(
+			OnTouchingLetterChangedListener onTouchingLetterChangedListener) {
+		this.onTouchingLetterChangedListener = onTouchingLetterChangedListener;
+	}
 
     public interface OnTouchingLetterChangedListener {
         void onTouchingLetterChanged(String s);

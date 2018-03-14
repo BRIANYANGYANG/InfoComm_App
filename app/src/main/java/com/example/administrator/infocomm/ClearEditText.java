@@ -19,30 +19,32 @@ import android.widget.EditText;
 public class ClearEditText extends EditText implements View.OnFocusChangeListener, TextWatcher {
 
     private Drawable mClearDrawable;
-
-
-    public ClearEditText(Context context) {
-        super(context);
+ 
+    public ClearEditText(Context context) { 
+    	this(context, null); 
+    } 
+ 
+    public ClearEditText(Context context, AttributeSet attrs) { 
+    	this(context, attrs, android.R.attr.editTextStyle);
+    } 
+    
+    public ClearEditText(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        init();
     }
-
-    public ClearEditText(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public ClearEditText(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    private void init() {
-        mClearDrawable = getCompoundDrawables()[2];
-        if (mClearDrawable == null) {
-            mClearDrawable = getResources().getDrawable(R.drawable.emotionstore_progresscancelbtn);
-        }
-        mClearDrawable.setBounds(0, 0, mClearDrawable.getIntrinsicWidth(), mClearDrawable.getIntrinsicHeight());
-        setClearIconVisible(false);
-        setOnFocusChangeListener(this);
-        addTextChangedListener(this);
-    }
+    
+    
+    private void init() { 
+    	mClearDrawable = getCompoundDrawables()[2];
+        if (mClearDrawable == null) { 
+        	mClearDrawable = getResources() 
+                    .getDrawable(R.drawable.emotionstore_progresscancelbtn);
+        } 
+        mClearDrawable.setBounds(0, 0, mClearDrawable.getIntrinsicWidth(), mClearDrawable.getIntrinsicHeight()); 
+        setClearIconVisible(false); 
+        setOnFocusChangeListener(this); 
+        addTextChangedListener(this); 
+    } 
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
