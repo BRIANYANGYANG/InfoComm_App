@@ -8,14 +8,16 @@ public class CompanyBean {
     private String name;
     private String boothPart;//大展馆名  如： E馆  ，D馆
     private String boothNo;//详细展位号码 如ED7-01  ， BJ3-01
-    private int x;
-    private int y;
 
-   public CompanyBean(String name, String boothNo, int x, int y) {
-       this.name = name.trim();
-       this.boothNo = boothNo.trim();
-       this.x = x;
-       this.y = y;
+    private double x;
+    private double y;
+
+
+    public CompanyBean(String name, String boothNo, double x, double y) {
+        this.name = name.trim();
+        this.boothNo = boothNo.trim();
+        this.x = x;
+        this.y = y;
     }
 
     public String getName() {
@@ -42,23 +44,21 @@ public class CompanyBean {
         this.boothNo = boothNo;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
-    }
-
-    @Override
+    }    @Override
     public String toString() {
         String a = name + "/"
                 +boothNo + "/"

@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.three,
                 R.drawable.four,
                 R.drawable.five,
+                R.drawable.six
         };
 
         @Override
@@ -190,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
             public void onPrepared(MediaPlayer mp) {
                 Logger.i("onPrepared");
                 mVideoView.start();
-//                mp.setLooping(true);
+                mp.setLooping(true);
             }
         });
         mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {

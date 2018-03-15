@@ -7,7 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.administrator.infocomm.data.CompanyBean;
@@ -23,6 +25,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2018/3/11 0011.
@@ -30,6 +33,7 @@ import butterknife.ButterKnife;
 
 
 public class SearchActivity extends AppCompatActivity {
+    private static String TAG = "SearchActivity";
     @BindView(R.id.title_text)
     TextView title;
 
@@ -44,6 +48,35 @@ public class SearchActivity extends AppCompatActivity {
 
     @BindView(R.id.sideBar)
     SideBar sideBar;
+
+    @BindView(R.id.btn)
+    Button btn;
+
+    @OnClick(R.id.btn)
+    public void btn() {
+        if (btn.getText().equals("中文")) {
+            KLog.i(TAG, "转换为 中文 ");
+            btn.setText("English");
+
+            HashMap<String, CompanyBean> map = CompanyDataManager.getinstance().getCNCompDataHashMap();
+            SourceDateList = filledData(map);
+            // 根据a-z进行排序源数据
+            Collections.sort(SourceDateList, pinyinComparator);
+            adapter.updateList(SourceDateList);
+
+        } else {
+            KLog.i(TAG, "转换为 English");
+            btn.setText("中文");
+
+            HashMap<String, CompanyBean> map = CompanyDataManager.getinstance().getENCompDataHashMap();
+            SourceDateList = filledData(map);
+            // 根据a-z进行排序源数据
+            Collections.sort(SourceDateList, pinyinComparator);
+            adapter.updateList(SourceDateList);
+
+
+        }
+    }
 
     private SortAdapter adapter;
     LinearLayoutManager manager;
@@ -66,6 +99,8 @@ public class SearchActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         title.setText("展商搜索");
+        btn.setVisibility(View.VISIBLE);
+        btn.setText("English");
         initViews();
     }
 
@@ -84,7 +119,8 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-        HashMap<String, CompanyBean> map = CompanyDataManager.getinstance().getCompDataHashMap();
+        //默认先显示中文展馆
+        HashMap<String, CompanyBean> map = CompanyDataManager.getinstance().getCNCompDataHashMap();
         SourceDateList = filledData(map);
         // 根据a-z进行排序源数据
         Collections.sort(SourceDateList, pinyinComparator);
@@ -100,19 +136,18 @@ public class SearchActivity extends AppCompatActivity {
         mClearEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int i, int i1, int i2) {
-                KLog.i("beforeTextChanged = " + s.toString());
+
             }
 
             @Override
             public void onTextChanged(CharSequence s, int i, int i1, int i2) {
-                KLog.i("onTextChanged");
                 //当输入框里面的值为空，更新为原来的列表，否则为过滤数据列表
                 filterData(s.toString());
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                KLog.i("afterTextChanged");
+
             }
         });
     }
