@@ -34,6 +34,7 @@ import butterknife.OnClick;
 
 public class SearchActivity extends AppCompatActivity {
     private static String TAG = "SearchActivity";
+    private static int lauFlag = 0;//0为中文   1为英文
     @BindView(R.id.title_text)
     TextView title;
 
@@ -54,7 +55,9 @@ public class SearchActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn)
     public void btn() {
-        if (btn.getText().equals("中文")) {
+        if (lauFlag == 1) {
+
+            lauFlag = 0;
             KLog.i(TAG, "转换为 中文 ");
             btn.setText("English");
 
@@ -65,6 +68,7 @@ public class SearchActivity extends AppCompatActivity {
             adapter.updateList(SourceDateList);
 
         } else {
+            lauFlag = 1;
             KLog.i(TAG, "转换为 English");
             btn.setText("中文");
 

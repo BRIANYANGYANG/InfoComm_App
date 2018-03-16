@@ -1,12 +1,15 @@
 package com.example.administrator.infocomm;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.socks.library.KLog;
 
 import java.util.List;
 
@@ -66,7 +69,14 @@ public class SortAdapter extends RecyclerView.Adapter<SortAdapter.ViewHolder> {
         holder.tvName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String name = mData.get(position).getName();
+                Intent intent = new Intent(mContext, MapActivity.class);
+                intent.putExtra("name", name);
+                mContext.startActivity(intent);
+                KLog.i("*********************************");
                 Toast.makeText(mContext, mData.get(position).getName(),Toast.LENGTH_SHORT).show();
+
+
             }
         });
 

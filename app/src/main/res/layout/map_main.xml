@@ -5,6 +5,45 @@
     android:id="@+id/title"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"></com.example.administrator.infocomm.TitleView>
+    <ImageView
+        android:id="@+id/topmap"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="400dp" />
+    <LinearLayout
+        android:id="@+id/buttonare"
+        android:orientation="horizontal"
+        android:layout_below="@id/topmap"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <Button
+            android:id="@+id/button1"
+            android:text="展馆1"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+        <Button
+            android:id="@+id/button2"
+            android:text="展馆2"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+        <Button
+            android:id="@+id/button3"
+            android:text="展馆3"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+        <Button
+            android:id="@+id/button4"
+            android:text="展馆2"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/planmap"
+        android:layout_below="@+id/buttonare"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 

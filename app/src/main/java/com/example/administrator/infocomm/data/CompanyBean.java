@@ -58,12 +58,14 @@ public class CompanyBean {
 
     public void setY(double y) {
         this.y = y;
-    }    @Override
+    }
+
+    @Override
     public String toString() {
         String a = name + "/"
-                +boothNo + "/"
-                +x + "/"
-                +y + "/";
+                + boothNo + "/"
+                + x + "/"
+                + y + "/";
         return a;
     }
 }
