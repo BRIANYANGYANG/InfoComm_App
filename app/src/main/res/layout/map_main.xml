@@ -39,11 +39,20 @@
             android:layout_height="80dp" />
 
     </LinearLayout>
-    <ImageView
-        android:id="@+id/planmap"
-        android:layout_below="@+id/buttonare"
+    <LinearLayout
+        android:layout_below="@id/buttonare"
+        android:gravity="center"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <com.example.administrator.infocomm.addpoint.ImageLayout
+            android:id="@+id/layoutContent"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
 
 
 

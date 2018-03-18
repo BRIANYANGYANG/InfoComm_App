@@ -70,12 +70,12 @@ public class SortAdapter extends RecyclerView.Adapter<SortAdapter.ViewHolder> {
             @Override
             public void onClick(View view) {
                 String name = mData.get(position).getName();
-                Intent intent = new Intent(mContext, MapActivity.class);
-                intent.putExtra("name", name);
-                mContext.startActivity(intent);
+//                Intent intent = new Intent(mContext, MapActivity.class);
+//                intent.putExtra("name", name);
+//                mContext.startActivity(intent);
                 KLog.i("*********************************");
                 Toast.makeText(mContext, mData.get(position).getName(),Toast.LENGTH_SHORT).show();
-
+                mSeletedDataCB.seletedDataCB(name);
 
             }
         });
@@ -87,10 +87,19 @@ public class SortAdapter extends RecyclerView.Adapter<SortAdapter.ViewHolder> {
     public int getItemCount() {
         return mData.size();
     }
+    //**********************seleted data callback************
+    public interface SeletedDataCB {
+        void  seletedDataCB(String compName);
+    }
 
     //**********************itemClick************************
     public interface OnItemClickListener {
         void onItemClick(View view, int position);
+    }
+    private SeletedDataCB mSeletedDataCB;
+
+    public void setSeletedDataCB (SeletedDataCB s){
+        this.mSeletedDataCB = s;
     }
 
     private OnItemClickListener mOnItemClickListener;

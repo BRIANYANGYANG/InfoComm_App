@@ -1,5 +1,6 @@
 package com.example.administrator.infocomm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -151,6 +152,20 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        adapter.setSeletedDataCB(new SortAdapter.SeletedDataCB() {
+            @Override
+            public void seletedDataCB(String compName) {
+                KLog.i(TAG, compName);
+                KLog.i(TAG, lauFlag);
+
+                Intent intent = new Intent(getApplicationContext(), MapActivity.class);
+                intent.putExtra("name", compName);
+                intent.putExtra("lauFlag", lauFlag);
+                startActivity(intent);
 
             }
         });
