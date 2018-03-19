@@ -1,64 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <com.example.administrator.infocomm.TitleView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></com.example.administrator.infocomm.TitleView>
+    android:background="@drawable/meetingbg2"
+    >
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="vertical">
+        android:layout_marginTop="332px"
+        android:layout_marginLeft="40px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
 
         <Button
             android:id="@+id/button1"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="metting1" />
+            android:background="@drawable/allmeetings"
+            android:layout_width="240px"
+            android:layout_height="80px"
+             />
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_toRightOf="@+id/button1"
-            android:text="metting1" />
+            android:layout_width="240px"
+            android:layout_height="80px"
+            android:background="@drawable/gfhyyc"
+            android:layout_marginLeft="250px"
+            />
         <Button
             android:id="@+id/button3"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_toRightOf="@+id/button2"
-            android:text="metting3" />
+            android:layout_width="240px"
+            android:layout_height="80px"
+            android:background="@drawable/asiayth"
+            android:layout_marginLeft="500px"
+            />
 
         <Button
             android:id="@+id/button4"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/button1"
-            android:text="metting4" />
+            android:background="@drawable/kjlt"
+            android:layout_width="240px"
+            android:layout_height="80px"
+            android:layout_marginLeft="750px"
+            />
         <Button
             android:id="@+id/button5"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_toRightOf="@+id/button4"
+            android:layout_width="240px"
+            android:layout_height="80px"
+            android:layout_marginTop="10px"
             android:layout_below="@+id/button1"
-            android:text="metting5" />
+            android:background="@drawable/zhcs"
+             />
         <Button
             android:id="@+id/button6"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_toRightOf="@+id/button5"
+            android:layout_width="240px"
+            android:layout_height="80px"
+            android:layout_marginTop="10px"
+            android:layout_marginLeft="250px"
             android:layout_below="@+id/button1"
-            android:text="metting6" />
+            android:background="@drawable/jyhy"
+             />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="240px"
+            android:layout_height="80px"
+            android:layout_marginTop="10px"
+            android:layout_marginLeft="500px"
+            android:layout_below="@+id/button1"
+            android:background="@drawable/kms"
+            />
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="240px"
+            android:layout_height="80px"
+            android:layout_marginTop="10px"
+            android:layout_marginLeft="750px"
+            android:layout_below="@+id/button1"
+            android:background="@drawable/chengdu"
+            />
 
     </RelativeLayout>
     <ImageView
         android:id="@+id/meeting_img"
-        android:scaleType="fitXY"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:scaleType="fitStart"
+        android:layout_marginTop="532px"
+        android:layout_marginLeft="45px"
+        android:layout_width="973px"
+        android:layout_height="1300px" />
 
-</LinearLayout>
+</RelativeLayout>
