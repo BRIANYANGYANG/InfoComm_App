@@ -4,8 +4,7 @@
     android:layout_height="match_parent">
     <ImageView
         android:id="@+id/imgPoint"
-        android:src="@drawable/img_point"
-        android:scaleType="centerCrop"
-        android:layout_width="60dp"
-        android:layout_height="60dp" />
+        android:scaleType="fitXY"
+        android:layout_width="20px"
+        android:layout_height="40px" />
 </LinearLayout>

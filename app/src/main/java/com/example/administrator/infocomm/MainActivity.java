@@ -114,12 +114,28 @@ public class MainActivity extends AppCompatActivity {
 
 
         location = new ArrayList<>();
-        location.add("A");
-        location.add("B");
-        location.add("C");
+        //E HALL
+        location.add("E1");
+        location.add("E2");
+        location.add("E3");
+        location.add("E4");
+        location.add("E5-01");
+        location.add("E5-02");
+
+        //D HALL
         location.add("D");
-        location.add("E");
-        location.add("F");
+        location.add("C");
+        location.add("F-1");
+        location.add("F-2");
+        location.add("F-3");
+        //M HALL
+        location.add("M-1");
+        location.add("M-2");
+        location.add("M-3");
+
+        //P HALL
+        location.add("P-1");
+        location.add("P-2");
 
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, location);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -138,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String location = spinner.getSelectedItem().toString();
                 textView.setText(location);
-                Logger.i(location);
+                KLog.i("sipnner", "location = " + location);
 
                 getinstance().saveSP(location, i, adapterView.getContext());
             }
@@ -165,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
         public View getView(ViewGroup container, int position) {
             ImageView imageView = new ImageView(container.getContext());
 //            imageView.setImageResource(image[position]);
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             Glide.with(container.getContext()).load(image[position]).into(imageView);
             return imageView;

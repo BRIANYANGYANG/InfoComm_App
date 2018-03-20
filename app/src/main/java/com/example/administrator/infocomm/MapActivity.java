@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.infocomm.addpoint.ImageLayout;
@@ -125,11 +126,40 @@ public class MapActivity extends AppCompatActivity {
             }
             String h = bootNo.substring(0, 1);//展馆首字母
             KLog.i(TAG, h);
-            if (h.equals("D") || h.equals("P") || h.equals("M")|| h.equals("C")|| h.equals("F")) {
-                initPointData(x, y, 760.8, 762, h);
+            String loc = CompanyDataManager.getinstance().getLocationSP(this);
+            String locHead = loc.substring(0, 1);
+            float x1 = CompanyDataManager.getinstance().getLocXSP(this);
+            float y1 = CompanyDataManager.getinstance().getLocYSP(this);
+
+
+            if (h.equals("P")) {
+                if (locHead.equals("p")) {//立柜和查询的点 在同一个展馆
+                    initPointData(x, y, x1, y1, 760.8, 762, h);
+                } else {
+                    initPointData(x, y, 760.8, 762, h);
+                    Toast.makeText(this, "请先前往对应展馆", Toast.LENGTH_SHORT).show();
+                }
+            } else if (h.equals("M")) {
+                if (locHead.equals("M")) {//立柜和查询的点 在同一个展馆
+                    initPointData(x, y, x1, y1, 760.8, 762, h);
+                } else {
+                    initPointData(x, y, 760.8, 762, h);
+                    Toast.makeText(this, "请先前往对应展馆", Toast.LENGTH_SHORT).show();
+                }
             } else if (h.equals("E")) {
-                //***********************************
-                initPointData(x, y, 760.8, 762, h);
+                if (locHead.equals("E")) {//立柜和查询的点 在同一个展馆
+                    initPointData(x, y, x1, y1, 968.2, 585.4, h);
+                } else {
+                    initPointData(x, y, 968.2, 585.4, h);
+                    Toast.makeText(this, "请先前往对应展馆", Toast.LENGTH_SHORT).show();
+                }
+            } else if (h.equals("D") ||  h.equals("C")|| h.equals("F")) {
+                if (locHead.equals("D") ||  locHead.equals("C")|| locHead.equals("F")) {//立柜和查询的点 在同一个展馆
+                    initPointData(x, y, x1, y1, 760.8, 762, h);
+                } else {
+                    initPointData(x, y, 760.8, 762, h);
+                    Toast.makeText(this, "请先前往对应展馆", Toast.LENGTH_SHORT).show();
+                }
             }
 
 
@@ -161,7 +191,40 @@ public class MapActivity extends AppCompatActivity {
         } else if (h.equals("P")) {//760.8 *762
             imageLayout.setImgBgAndAddPoints(1000, 1000, R.drawable.p);
         } else if (h.equals("E")) {//1080 * 1920
-            imageLayout.setImgBgAndAddPoints(1080, 1920, R.drawable.e);
+            imageLayout.setImgBgAndAddPoints(1000, 563, R.drawable.e);
+        }
+
+
+    }
+
+    private void initPointData(double x, double y, float x1, float y1, double targetX, double targetY, String h) { //760.8f /762f;
+        ArrayList<PointSimple> mPointSimple = new ArrayList<>();
+        PointSimple p = new PointSimple();
+        //展馆位置
+        //经测试  = 实际坐标x/图片总宽
+        p.width_scale = x / targetX;
+        p.height_scale = y / targetY;
+        KLog.i(p.width_scale);
+        KLog.i(p.height_scale);
+
+        mPointSimple.add(p);
+
+        //立柜位置
+        PointSimple l = new PointSimple();
+        l.width_scale = x1 / targetX;
+        l.height_scale = y1 / targetY;
+         mPointSimple.add(l);
+
+        imageLayout.setPoints(mPointSimple);
+
+        if (h.equals("D") || h.equals("C") || h.equals("F")) {//760.8 *762
+            imageLayout.setImgBgAndAddPoints(1000, 1000, R.drawable.d);
+        } else if (h.equals("M")) {//760.8 *762
+            imageLayout.setImgBgAndAddPoints(1000, 1000, R.drawable.m);
+        } else if (h.equals("P")) {//760.8 *762
+            imageLayout.setImgBgAndAddPoints(1000, 1000, R.drawable.p);
+        } else if (h.equals("E")) {//1080 * 1920
+            imageLayout.setImgBgAndAddPoints(1000, 563, R.drawable.e);
         }
 
 

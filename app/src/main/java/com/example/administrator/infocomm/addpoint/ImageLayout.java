@@ -104,6 +104,8 @@ public class ImageLayout extends FrameLayout {
 
             LinearLayout view = (LinearLayout) LayoutInflater.from(mContext).inflate(R.layout.layout_img_point, this, false);
             ImageView imageView = (ImageView) view.findViewById(R.id.imgPoint);
+            Glide.with(mContext).load(R.drawable.arr).asGif().into(imageView);
+
             imageView.setTag(i);
 
 //            AnimationDrawable animationDrawable = (AnimationDrawable) imageView.getDrawable();
@@ -111,8 +113,8 @@ public class ImageLayout extends FrameLayout {
 
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
 
-            layoutParams.leftMargin = (int) (width * width_scale);
-            layoutParams.topMargin = (int) (height * height_scale);
+            layoutParams.leftMargin = (int) (width * width_scale)- 10;
+            layoutParams.topMargin = (int) (height * height_scale)- 40;
 //            layoutParams.leftMargin = 128;
 //            layoutParams.topMargin = 129;
 
