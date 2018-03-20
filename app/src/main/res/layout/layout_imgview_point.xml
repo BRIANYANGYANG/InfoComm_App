@@ -5,8 +5,7 @@
 
     <ImageView
         android:id="@+id/imgBg"
-        android:layout_gravity="center"
-        android:scaleType="centerCrop"
+        android:scaleType="fitStart"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

@@ -1,56 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-<com.example.administrator.infocomm.TitleView
-    android:id="@+id/title"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"></com.example.administrator.infocomm.TitleView>
+    android:layout_height="match_parent"
+    android:background="@drawable/mapbg3"
+    >
+
     <ImageView
         android:id="@+id/topmap"
         android:scaleType="fitXY"
-        android:layout_below="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="400dp" />
+        android:layout_marginTop="196px"
+        android:layout_marginLeft="40px"
+        android:layout_width="1000px"
+        android:layout_height="400px" />
     <LinearLayout
         android:id="@+id/buttonare"
         android:orientation="horizontal"
+        android:layout_marginTop="24px"
+        android:layout_marginLeft="40px"
         android:layout_below="@id/topmap"
-        android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
         <Button
             android:id="@+id/button1"
-            android:text="展馆1"
-            android:layout_width="80dp"
-            android:layout_height="80dp" />
+            android:background="@drawable/ehall"
+            android:layout_width="190px"
+            android:layout_height="80px" />
         <Button
             android:id="@+id/button2"
-            android:text="展馆2"
-            android:layout_width="80dp"
-            android:layout_height="80dp" />
+            android:layout_marginLeft="12px"
+            android:background="@drawable/chall"
+            android:layout_width="190px"
+            android:layout_height="80px" />
         <Button
             android:id="@+id/button3"
-            android:text="展馆3"
-            android:layout_width="80dp"
-            android:layout_height="80dp" />
+            android:background="@drawable/mhall"
+            android:layout_marginLeft="12px"
+            android:layout_width="190px"
+            android:layout_height="80px" />
         <Button
             android:id="@+id/button4"
-            android:text="展馆2"
-            android:layout_width="80dp"
-            android:layout_height="80dp" />
+            android:background="@drawable/phall"
+            android:layout_marginLeft="12px"
+            android:layout_width="190px"
+            android:layout_height="80px" />
+
+        <Button
+            android:id="@+id/button5"
+            android:background="@drawable/bhall"
+            android:layout_marginLeft="12px"
+            android:layout_width="190px"
+            android:layout_height="80px" />
 
     </LinearLayout>
     <LinearLayout
         android:layout_below="@id/buttonare"
-        android:gravity="center"
+        android:layout_marginTop="16px"
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="998px"
+        android:layout_marginLeft="40px"
+        android:layout_height="1177px">
 
         <com.example.administrator.infocomm.addpoint.ImageLayout
             android:id="@+id/layoutContent"
-            android:layout_centerInParent="true"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

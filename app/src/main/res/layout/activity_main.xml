@@ -4,72 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/homebg"
     tools:context="com.example.administrator.infocomm.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+
     <VideoView
         android:id="@+id/topvideo"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_marginLeft="75px"
+        android:layout_marginTop="64px"
+        android:layout_width="926px"
+        android:layout_height="516px" />
+
 
     <RelativeLayout
-        android:layout_below="@id/topvideo"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="200dp">
-
+        android:layout_marginTop="858px"
+        android:layout_marginLeft="354px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout">
         <Button
             android:id="@+id/button1"
-            android:text="展商搜索"
-
-            android:layout_width="150dp"
-            android:layout_height="100dp" />
+            android:background="@drawable/search_selector"
+            android:layout_width="372px"
+            android:layout_height="132px" />
         <Button
             android:id="@+id/button2"
-            android:text="地图map"
-            android:layout_toRightOf="@id/button1"
-            android:layout_width="150dp"
-            android:layout_height="100dp" />
+            android:background="@drawable/map_selector"
+            android:layout_marginTop="134px"
+            android:layout_width="372px"
+            android:layout_height="132px" />
 
         <Button
             android:id="@+id/button3"
-            android:text="会议信息"
-            android:layout_below="@id/button1"
-            android:layout_width="150dp"
-            android:layout_height="100dp" />
-
-        <Button
-            android:id="@+id/button4"
-            android:text="4"
-            android:layout_below="@id/button1"
-            android:layout_toRightOf="@id/button3"
-            android:layout_width="150dp"
-            android:layout_height="100dp" />
-
+            android:background="@drawable/meeting_selector"
+            android:layout_marginTop="268px"
+            android:layout_width="372px"
+            android:layout_height="132px" />
     </RelativeLayout>
+
      <TextView
          android:id="@+id/location_tv"
          android:hint="请选择位置"
          android:layout_width="70dp"
-         android:layout_height="30dp" />
+         android:layout_height="30dp"
+         android:layout_alignBaseline="@+id/relativeLayout"
+         android:layout_alignBottom="@+id/relativeLayout"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentStart="true" />
 
     <Spinner
         android:id="@+id/spiner"
-        android:layout_below="@id/topvideo"
         android:layout_width="30dp"
-        android:layout_height="wrap_content"></Spinner>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/location_tv"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="9dp"></Spinner>
 
     <com.jude.rollviewpager.RollPagerView
-        android:layout_weight="1"
         android:id="@+id/autorollview"
+        android:layout_width="921px"
+        android:layout_height="505px"
+        app:rollviewpager_play_delay="5000"
         android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        app:rollviewpager_play_delay="3000"></com.jude.rollviewpager.RollPagerView>
+        android:layout_marginBottom="96px"
+        android:layout_marginLeft="79px"
+        ></com.jude.rollviewpager.RollPagerView>
 
-    </LinearLayout>
+
 </RelativeLayout>

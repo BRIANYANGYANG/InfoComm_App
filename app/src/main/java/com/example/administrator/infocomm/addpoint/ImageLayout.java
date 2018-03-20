@@ -1,8 +1,6 @@
 package com.example.administrator.infocomm.addpoint;
 
 import android.content.Context;
-import android.graphics.drawable.AnimationDrawable;
-import android.nfc.Tag;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,7 +8,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -48,6 +45,19 @@ public class ImageLayout extends FrameLayout {
         super(context, attrs, defStyleAttr);
     }
 
+    public  void setImgBg(int rID) {
+        clearPoints(); //清除标记点
+
+        ViewGroup.LayoutParams lp = imgBg.getLayoutParams();
+        lp.width = 998;
+        lp.height = 1177;
+        KLog.i( lp.width);
+        KLog.i( lp.height);
+
+        imgBg.setLayoutParams(lp);
+        Glide.with(mContext).load(rID).into(imgBg);
+    }
+
 
     private void initView(Context context, AttributeSet attrs) {
         mContext = context;
@@ -57,12 +67,12 @@ public class ImageLayout extends FrameLayout {
         layouPoints = (FrameLayout) imgPointLayout.findViewById(R.id.layouPoints);
     }
 
-    public void setImgBg(int width, int height, int rID) {
+    public void setImgBgAndAddPoints(int width, int height, int rID) {
         ViewGroup.LayoutParams lp = imgBg.getLayoutParams();
-        KLog.i( lp.width);
-        KLog.i( lp.height);
         lp.width = width;
         lp.height = height;
+        KLog.i( lp.width);
+        KLog.i( lp.height);
 
         imgBg.setLayoutParams(lp);
 
@@ -110,10 +120,16 @@ public class ImageLayout extends FrameLayout {
 
             layouPoints.addView(view, layoutParams);
         }
+
+
     }
 
-    private void initData() {
-
+    public void clearPoints() {
+        if (layouPoints == null) {
+            KLog.e("layouPoints == null");
+            return;
+        }
+        layouPoints.removeAllViews();
     }
 
 }

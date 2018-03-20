@@ -64,12 +64,13 @@ public class MeetingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         //去掉Activity上面的状态栏
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.meeting_main);
         ButterKnife.bind(this);
+
+        Glide.with(this).load(R.drawable.metting1).into(meetingImg);
 
 
     }
