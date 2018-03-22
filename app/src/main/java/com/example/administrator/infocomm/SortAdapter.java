@@ -1,13 +1,11 @@
 package com.example.administrator.infocomm;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.socks.library.KLog;
 
@@ -74,7 +72,7 @@ public class SortAdapter extends RecyclerView.Adapter<SortAdapter.ViewHolder> {
 //                intent.putExtra("name", name);
 //                mContext.startActivity(intent);
                 KLog.i("*********************************");
-                Toast.makeText(mContext, mData.get(position).getName(),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mContext, mData.get(position).getName(),Toast.LENGTH_SHORT).show();
                 mSeletedDataCB.seletedDataCB(name);
 
             }

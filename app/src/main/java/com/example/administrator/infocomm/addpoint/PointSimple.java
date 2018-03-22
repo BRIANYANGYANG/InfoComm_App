@@ -10,4 +10,6 @@ public class PointSimple {
     // 标记点相对于横向的高度的比例
     public double height_scale;
 
+    public int flag = 0;//0起点    1终点
+
 }

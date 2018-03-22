@@ -141,28 +141,28 @@ public class MapActivity extends AppCompatActivity {
                     initPointData(x, y, x1, y1, 760.8, 762, h);
                 } else {
                     initPointData(x, y, 760.8, 762, h);
-                    Toast.makeText(this, "请先前往对应展馆", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "请先前往对应展馆/Please go to the corresponding Pavilion first", Toast.LENGTH_LONG).show();
                 }
             } else if (h.equals("M")) {
                 if (locHead.equals("M")) {//立柜和查询的点 在同一个展馆
                     initPointData(x, y, x1, y1, 760.8, 762, h);
                 } else {
                     initPointData(x, y, 760.8, 762, h);
-                    Toast.makeText(this, "请先前往对应展馆", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "请先前往对应展馆/Please go to the corresponding Pavilion first", Toast.LENGTH_LONG).show();
                 }
             } else if (h.equals("E")) {
                 if (locHead.equals("E")) {//立柜和查询的点 在同一个展馆
                     initPointData(x, y, x1, y1, 968.2, 585.4, h);
                 } else {
                     initPointData(x, y, 968.2, 585.4, h);
-                    Toast.makeText(this, "请先前往对应展馆", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "请先前往对应展馆/Please go to the corresponding Pavilion first", Toast.LENGTH_LONG).show();
                 }
             } else if (h.equals("D") ||  h.equals("C")|| h.equals("F")) {
                 if (locHead.equals("D") ||  locHead.equals("C")|| locHead.equals("F")) {//立柜和查询的点 在同一个展馆
                     initPointData(x, y, x1, y1, 760.8, 762, h);
                 } else {
                     initPointData(x, y, 760.8, 762, h);
-                    Toast.makeText(this, "请先前往对应展馆", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "请先前往对应展馆/Please go to the corresponding Pavilion first", Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -181,8 +181,10 @@ public class MapActivity extends AppCompatActivity {
         //经测试  = 实际坐标x/图片总宽
         p.width_scale = x / targetX;
         p.height_scale = y / targetY;
+        p.flag = 1;
         KLog.i(p.width_scale);
         KLog.i(p.height_scale);
+        KLog.i(p.flag);
 
         mPointSimple.add(p);
 
@@ -208,8 +210,10 @@ public class MapActivity extends AppCompatActivity {
         //经测试  = 实际坐标x/图片总宽
         p.width_scale = x / targetX;
         p.height_scale = y / targetY;
+        p.flag = 1;
         KLog.i(p.width_scale);
         KLog.i(p.height_scale);
+        KLog.i(p.flag);
 
         mPointSimple.add(p);
 
@@ -217,6 +221,7 @@ public class MapActivity extends AppCompatActivity {
         PointSimple l = new PointSimple();
         l.width_scale = x1 / targetX;
         l.height_scale = y1 / targetY;
+        l.flag = 0;
          mPointSimple.add(l);
 
         imageLayout.setPoints(mPointSimple);

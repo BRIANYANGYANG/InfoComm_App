@@ -5,6 +5,6 @@
     <ImageView
         android:id="@+id/imgPoint"
         android:scaleType="fitXY"
-        android:layout_width="20px"
-        android:layout_height="40px" />
+        android:layout_width="60px"
+        android:layout_height="60px" />
 </LinearLayout>

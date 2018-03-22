@@ -15,11 +15,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
-import com.jude.rollviewpager.OnItemClickListener;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.StaticPagerAdapter;
 import com.orhanobut.logger.Logger;
@@ -95,12 +93,12 @@ public class MainActivity extends AppCompatActivity {
 
         //图片轮播
         mRollPagerView.setAdapter(new MyPagerAdapter());
-        mRollPagerView.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
-            }
-        });
+//        mRollPagerView.setOnItemClickListener(new OnItemClickListener() {
+//            @Override
+//            public void onItemClick(int position) {
+//                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         //摆放位置选择
         initSpinner();

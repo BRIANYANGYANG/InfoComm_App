@@ -104,7 +104,13 @@ public class ImageLayout extends FrameLayout {
 
             LinearLayout view = (LinearLayout) LayoutInflater.from(mContext).inflate(R.layout.layout_img_point, this, false);
             ImageView imageView = (ImageView) view.findViewById(R.id.imgPoint);
-            Glide.with(mContext).load(R.drawable.arr).asGif().into(imageView);
+
+            ///0起点 红标   1终点 绿标
+            if (points.get(i).flag == 0) {
+                Glide.with(mContext).load(R.drawable.arr_red).asGif().into(imageView);
+            } else {
+                Glide.with(mContext).load(R.drawable.arr_green).asGif().into(imageView);
+            }
 
             imageView.setTag(i);
 
@@ -113,8 +119,8 @@ public class ImageLayout extends FrameLayout {
 
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
 
-            layoutParams.leftMargin = (int) (width * width_scale)- 10;
-            layoutParams.topMargin = (int) (height * height_scale)- 40;
+            layoutParams.leftMargin = (int) (width * width_scale)- 30;
+            layoutParams.topMargin = (int) (height * height_scale)- 30;
 //            layoutParams.leftMargin = 128;
 //            layoutParams.topMargin = 129;
 
