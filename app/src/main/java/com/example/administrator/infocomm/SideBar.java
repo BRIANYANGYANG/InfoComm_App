@@ -60,7 +60,7 @@ public class SideBar extends View {
         KLog.i(TAG, "height=" + height);
 
         for (int i = 0; i < b.length; i ++) {
-            paint.setColor(Color.rgb(33, 65, 98));
+            paint.setColor(Color.parseColor("#7876F1"));
             // paint.setColor(Color.WHITE);
             paint.setTypeface(Typeface.DEFAULT_BOLD);
             paint.setAntiAlias(true);

@@ -1,6 +1,7 @@
 package com.example.administrator.infocomm;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -43,7 +44,8 @@ public class ClearEditText extends EditText implements View.OnFocusChangeListene
         mClearDrawable.setBounds(0, 0, mClearDrawable.getIntrinsicWidth(), mClearDrawable.getIntrinsicHeight()); 
         setClearIconVisible(false); 
         setOnFocusChangeListener(this); 
-        addTextChangedListener(this); 
+        addTextChangedListener(this);
+        setHintTextColor(Color.parseColor("#FFFFFF"));
     } 
 
     @Override

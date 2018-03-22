@@ -8,15 +8,16 @@
         android:id="@+id/tag"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="#E0E0E0"
+        android:background="#2D2D61"
         android:gravity="center_vertical"
         android:paddingLeft="15dp"
         android:textSize="25sp"
         android:text="A"
-        android:textColor="#454545" />
+        android:textColor="#FFFFFF" />
 
     <LinearLayout
         android:layout_gravity="center_vertical"
+        android:background="#1E1B3F"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -32,7 +33,7 @@
         android:layout_alignParentLeft="true"
         android:text="hhhh"
         android:textSize="25sp"
-        android:textColor="#336598" />
+        android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/no"
@@ -41,7 +42,7 @@
             android:textSize="25sp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="50dp"
-            android:textColor="#336598"
+            android:textColor="#FFFFFF"
             android:maxLines="1"
             android:layout_width="wrap_content"
             android:layout_height="80dp"></TextView>

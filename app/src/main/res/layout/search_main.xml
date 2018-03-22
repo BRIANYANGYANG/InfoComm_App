@@ -4,27 +4,75 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:focusable="true"
+    android:background="@drawable/searchbg"
     android:focusableInTouchMode="true">
 
-    <com.example.administrator.infocomm.TitleView
-        android:id="@+id/title"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></com.example.administrator.infocomm.TitleView>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_back"
+                android:background="@drawable/back_selector"
+                android:layout_marginTop="24px"
+                android:layout_marginLeft="40px"
+                android:layout_width="32px"
+                android:layout_height="32px" />
+
+            <ImageView
+                android:background="@drawable/logo"
+                android:layout_marginRight="20px"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20px"
+                android:layout_width="96px"
+                android:layout_height="30px" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_english_selector"
+            android:layout_marginRight="40px"
+            android:layout_marginTop="128px"
+            android:layout_width="96px"
+            android:layout_height="32px" />
+        </RelativeLayout>
+
+    </LinearLayout>
 
     <com.example.administrator.infocomm.ClearEditText
         android:id="@+id/filter_edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#9DDE76"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="10px"
+        android:layout_width="1000px"
+        android:layout_height="60px"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/search_bar"
         android:drawableLeft="@drawable/search_bar_icon_normal"
-        android:hint="请输入关键字"
+        android:hint="请输入关键字/Please enter the keyword"
         android:maxLines="1"
         android:paddingLeft="8dp"
-        android:textSize="35dp" />
+        android:textSize="24px" />
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_marginTop="16px"
+        android:layout_marginLeft="40px"
+        android:layout_width="1000px"
+        android:layout_height="1573px">
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
@@ -35,7 +83,7 @@
             android:layout_centerInParent="true"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:background="#9DDE76"
+            android:background="#7876F1"
             android:gravity="center"
             android:textColor="#ffffffff"
             android:textSize="30dp"

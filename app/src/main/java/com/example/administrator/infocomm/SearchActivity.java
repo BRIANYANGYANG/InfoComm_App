@@ -36,8 +36,11 @@ import butterknife.OnClick;
 public class SearchActivity extends AppCompatActivity {
     private static String TAG = "SearchActivity";
     private static int lauFlag = 0;//0为中文   1为英文
-    @BindView(R.id.title_text)
-    TextView title;
+
+    @OnClick(R.id.btn_back)
+    void back() {
+        finish();
+    }
 
     @BindView(R.id.filter_edit)
     ClearEditText mClearEditText;
@@ -59,8 +62,8 @@ public class SearchActivity extends AppCompatActivity {
         if (lauFlag == 1) {
 
             lauFlag = 0;
-            KLog.i(TAG, "转换为 中文 ");
-            btn.setText("English");
+            KLog.i(TAG, "转换为 chinese ");
+            btn.setBackgroundResource(R.drawable.btn_english_selector);
 
             HashMap<String, CompanyBean> map = CompanyDataManager.getinstance().getCNCompDataHashMap();
             SourceDateList = filledData(map);
@@ -70,8 +73,8 @@ public class SearchActivity extends AppCompatActivity {
 
         } else {
             lauFlag = 1;
-            KLog.i(TAG, "转换为 English");
-            btn.setText("中文");
+            KLog.i(TAG, "转换为 english");
+            btn.setBackgroundResource(R.drawable.btn_chinese_selector);
 
             HashMap<String, CompanyBean> map = CompanyDataManager.getinstance().getENCompDataHashMap();
             SourceDateList = filledData(map);
@@ -103,12 +106,30 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.search_main);
         ButterKnife.bind(this);
 
-        title.setText("展商搜索");
         btn.setVisibility(View.VISIBLE);
-        btn.setText("English");
+
         initViews();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        pinyinComparator = null;
+        sideBar.setTextView(null);
+        sideBar.setOnTouchingLetterChangedListener(null);
+        SourceDateList = null;
+        manager = null;
+        mRecyclerView.setLayoutManager(null);
+        mRecyclerView.setAdapter(null);
+        mRecyclerView = null;
+        mClearEditText.addTextChangedListener(null);
+        mClearEditText = null;
+        adapter.setSeletedDataCB(null);
+        adapter = null;
+
+
+    }
     private void initViews() {
         pinyinComparator = new PinyinComparator();
         sideBar.setTextView(dialog);

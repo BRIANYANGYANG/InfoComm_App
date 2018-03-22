@@ -106,7 +106,7 @@ public class MapActivity extends AppCompatActivity {
             double y = 0f;
             try {
 
-                if (lauFlag == 0) {//中文
+                if (lauFlag == 0) {//chinese
                     temp = CompanyDataManager.getinstance().getCNCompDataHashMap().get(name);
                     x = temp.getX();
                     y = temp.getY();
