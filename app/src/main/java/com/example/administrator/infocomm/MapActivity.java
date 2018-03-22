@@ -35,6 +35,10 @@ public class MapActivity extends AppCompatActivity {
 
 //    @BindView(R.id.planmap)//底部平面图
 //    ImageView planMap;
+    @OnClick(R.id.btn_back)
+    void back() {
+        finish();
+    }
 
     @BindView(R.id.button1)
     Button button1;
@@ -97,7 +101,7 @@ public class MapActivity extends AppCompatActivity {
             KLog.i(TAG, lauFlag);
 
             CompanyBean temp = null;
-            String bootNo = "";
+            String bootNo = "C";
             double x = 0f;
             double y = 0f;
             try {
@@ -227,6 +231,19 @@ public class MapActivity extends AppCompatActivity {
             imageLayout.setImgBgAndAddPoints(1000, 563, R.drawable.e);
         }
 
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (imageLayout != null) {
+            imageLayout = null;
+        }
+
+        if (topmap != null) {
+            topmap = null;
+        }
 
     }
 }

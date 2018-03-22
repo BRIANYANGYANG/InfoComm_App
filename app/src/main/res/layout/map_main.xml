@@ -4,49 +4,64 @@
     android:layout_height="match_parent"
     android:background="@drawable/mapbg3"
     >
+    <Button
+        android:id="@+id/btn_back"
+        android:background="@drawable/back_selector"
+        android:layout_marginTop="24px"
+        android:layout_marginLeft="40px"
+        android:layout_width="32px"
+        android:layout_height="32px" />
+
+    <ImageView
+        android:background="@drawable/logo"
+        android:layout_marginRight="20px"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20px"
+        android:layout_width="96px"
+        android:layout_height="30px" />
 
     <ImageView
         android:id="@+id/topmap"
         android:scaleType="fitXY"
-        android:layout_marginTop="196px"
+        android:layout_marginTop="216px"
         android:layout_marginLeft="40px"
         android:layout_width="1000px"
         android:layout_height="400px" />
     <LinearLayout
         android:id="@+id/buttonare"
         android:orientation="horizontal"
-        android:layout_marginTop="24px"
+        android:layout_marginTop="20px"
         android:layout_marginLeft="40px"
         android:layout_below="@id/topmap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <Button
             android:id="@+id/button1"
-            android:background="@drawable/ehall"
+            android:background="@drawable/ehall_selector"
             android:layout_width="190px"
             android:layout_height="80px" />
         <Button
             android:id="@+id/button2"
             android:layout_marginLeft="12px"
-            android:background="@drawable/chall"
+            android:background="@drawable/chall_selector"
             android:layout_width="190px"
             android:layout_height="80px" />
         <Button
             android:id="@+id/button3"
-            android:background="@drawable/mhall"
+            android:background="@drawable/mhall_selector"
             android:layout_marginLeft="12px"
             android:layout_width="190px"
             android:layout_height="80px" />
         <Button
             android:id="@+id/button4"
-            android:background="@drawable/phall"
+            android:background="@drawable/phall_selector"
             android:layout_marginLeft="12px"
             android:layout_width="190px"
             android:layout_height="80px" />
 
         <Button
             android:id="@+id/button5"
-            android:background="@drawable/bhall"
+            android:background="@drawable/dhall_selector"
             android:layout_marginLeft="12px"
             android:layout_width="190px"
             android:layout_height="80px" />
@@ -54,7 +69,6 @@
     </LinearLayout>
     <LinearLayout
         android:layout_below="@id/buttonare"
-        android:layout_marginTop="16px"
         android:orientation="vertical"
         android:layout_width="1000px"
         android:layout_marginLeft="40px"

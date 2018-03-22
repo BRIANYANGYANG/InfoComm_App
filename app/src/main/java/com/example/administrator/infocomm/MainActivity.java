@@ -114,6 +114,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         location = new ArrayList<>();
+        //D HALL
+        location.add("D");
+        location.add("C");
+        location.add("F-1");
+        location.add("F-2");
+        location.add("F-3");
+
         //E HALL
         location.add("E1");
         location.add("E2");
@@ -122,12 +129,6 @@ public class MainActivity extends AppCompatActivity {
         location.add("E5-01");
         location.add("E5-02");
 
-        //D HALL
-        location.add("D");
-        location.add("C");
-        location.add("F-1");
-        location.add("F-2");
-        location.add("F-3");
         //M HALL
         location.add("M-1");
         location.add("M-2");

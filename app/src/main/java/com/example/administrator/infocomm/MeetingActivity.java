@@ -22,6 +22,11 @@ public class MeetingActivity extends AppCompatActivity {
     @BindView(R.id.meeting_img)
     ImageView meetingImg;
 
+    @OnClick(R.id.btn_back)
+    void back() {
+        finish();
+    }
+
     @OnClick(R.id.button1)
      void Button1() {
         Glide.with(this).load(R.drawable.metting1).into(meetingImg);
